@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Dosa Fresh Invoice Generator</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================
+       PAGE HEADER
+  ====================================== -->
+
+  <header class="page-header">
+
+    <h1>Dosa Fresh Invoice Generator</h1>
+
+    <p>
+      Create professional invoices quickly and easily.
+    </p>
+
+  </header>
+
+
+
+  <!-- =====================================
+       MAIN APPLICATION
+  ====================================== -->
+
+  <main class="app">
+
+
+    <!-- ===================================
+         INVOICE SETTINGS
+    ==================================== -->
+
+    <section class="form-section">
+
+      <h2>Invoice Settings</h2>
+
+
+      <!-- CUSTOMER -->
+
+      <h3>Customer Details</h3>
+
+
+      <label>
+
+        Customer Name
+
+        <input
+          type="text"
+          id="customerName"
+          value="India Bazaar"
+        >
+
+      </label>
+
+
+      <label>
+
+        Customer Address
+
+        <input
+          type="text"
+          id="customerAddress"
+          value="Sample Customer Address"
+        >
+
+      </label>
+
+
+
+      <!-- INVOICE DETAILS -->
+
+      <h3>Invoice Details</h3>
+
+
+      <label>
+
+        Invoice Number
+
+        <input
+          type="text"
+          id="invoiceNumber"
+          value="DF-0001"
+        >
+
+      </label>
+
+
+      <label>
+
+        Invoice Date
+
+        <input
+          type="date"
+          id="invoiceDate"
+          value="2026-09-05"
+        >
+
+      </label>
+
+
+
+      <!-- PRODUCT -->
+
+      <h3>Product</h3>
+
+
+      <label>
+
+        Product / Service
+
+        <input
+          type="text"
+          id="productName"
+          value="Dosa Batter"
+        >
+
+      </label>
+
+
+      <label>
+
+        Quantity
+
+        <input
+          type="number"
+          id="quantity"
+          value="50"
+          min="0"
+          step="0.01"
+        >
+
+      </label>
+
+
+      <label>
+
+        Unit
+
+        <input
+          type="text"
+          id="unit"
+          value="kg"
+        >
+
+      </label>
+
+
+      <label>
+
+        Price per Unit (PLN)
+
+        <input
+          type="number"
+          id="unitPrice"
+          value="15"
+          min="0"
+          step="0.01"
+        >
+
+      </label>
+
+
+
+      <!-- VAT -->
+
+      <h3>Tax</h3>
+
+
+      <label>
+
+        VAT (%)
+
+        <input
+          type="number"
+          id="vatRate"
+          value="23"
+          min="0"
+          step="0.01"
+        >
+
+      </label>
+
+
+
+      <!-- PAYMENT -->
+
+      <h3>Payment</h3>
+
+
+      <label>
+
+        Payment Terms
+
+        <input
+          type="text"
+          id="paymentTerms"
+          value="Payment due within 14 days"
+        >
+
+      </label>
+
+
+
+      <!-- NOTES -->
+
+      <h3>Notes</h3>
+
+
+      <label>
+
+        Invoice Notes
+
+        <textarea id="notes">Thank you for your business!</textarea>
+
+      </label>
+
+
+
+      <!-- PRINT -->
+
+      <div class="actions">
+
+        <button
+          type="button"
+          id="printButton"
+        >
+          🖨️ Print / Save PDF
+        </button>
+      
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================
+         LIVE PREVIEW
+    ==================================== -->
+
+    <section class="preview-section">
+
+
+      <div class="preview-label">
+
+        LIVE PREVIEW
+
+      </div>
+
+
+
+      <!-- =================================
+           INVOICE
+      ================================== -->
+
+      <div
+        class="invoice"
+        id="invoice"
+      >
+
+
+        <!-- =================================
+             HEADER
+        ================================== -->
+
+        <div class="company-header">
+
+
+          <!-- LOGO ONLY -->
+
+          <div class="company-brand">
+
+
+            <svg
+              class="dosa-logo"
+              viewBox="0 0 520 160"
+              xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Dosa Fresh logo"
+            >
+
+
+              <!-- LEAVES -->
+
+              <path
+                d="
+                  M260 40
+                  C235 20 235 5 248 0
+                  C272 10 277 27 260 40Z
+                "
+                fill="#2f7d32"
+              />
+
+
+              <path
+                d="
+                  M265 42
+                  C275 15 298 3 315 1
+                  C314 27 292 47 265 50Z
+                "
+                fill="#075b2a"
+              />
+
+
+
+              <!-- DOSA FRESH -->
+
+              <text
+                x="260"
+                y="88"
+                text-anchor="middle"
+                font-family="Georgia, 'Times New Roman', serif"
+                font-size="62"
+                font-weight="bold"
+                fill="#075b2a"
+              >
+                Dosa Fresh
+              </text>
+
+
+
+              <!-- DIVIDER LINES -->
+
+              <line
+                x1="25"
+                y1="105"
+                x2="125"
+                y2="105"
+                stroke="#075b2a"
+                stroke-width="3"
+              />
+
+
+              <line
+                x1="395"
+                y1="105"
+                x2="495"
+                y2="105"
+                stroke="#075b2a"
+                stroke-width="3"
+              />
+
+
+
+              <!-- TAGLINE -->
+
+              <text
+                x="260"
+                y="112"
+                text-anchor="middle"
+                font-family="Arial, Helvetica, sans-serif"
+                font-size="16"
+                font-weight="bold"
+                letter-spacing="2.5"
+                fill="#075b2a"
+              >
+                TRADITION IN EVERY POUR
+              </text>
+
+
+
+              <!-- DESCRIPTION -->
+
+              <text
+                x="260"
+                y="140"
+                text-anchor="middle"
+                font-family="Arial, Helvetica, sans-serif"
+                font-size="10"
+                letter-spacing="2.5"
+                fill="#075b2a"
+              >
+                NATURAL • AUTHENTIC • SOUTH INDIAN
+              </text>
+
+
+            </svg>
+
+
+          </div>
+
+
+
+          <!-- INVOICE TITLE -->
+
+          <div class="invoice-title">
+
+            <h1>INVOICE</h1>
+
+            <p class="sample-warning">
+              SAMPLE / NOT A TAX INVOICE
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             INVOICE INFORMATION
+        ================================== -->
+
+        <div class="invoice-info">
+
+
+          <div>
+
+            <strong>Invoice Number:</strong>
+
+            <span id="invoiceNumberDisplay">
+              DF-0001
+            </span>
+
+          </div>
+
+
+
+          <div>
+
+            <strong>Invoice Date:</strong>
+
+            <span id="invoiceDateDisplay">
+              05/09/2026
+            </span>
+
+          </div>
+
+
+
+          <div>
+
+            <strong>Customer:</strong>
+
+            <span id="customerDisplay">
+              India Bazaar
+            </span>
+
+          </div>
+
+
+
+          <div>
+
+            <strong>Customer Address:</strong>
+
+            <span id="customerAddressDisplay">
+              Sample Customer Address
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             PRODUCTS TABLE
+        ================================== -->
+
+        <div class="items">
+
+
+          <table>
+
+
+            <thead>
+
+              <tr>
+
+                <th>
+                  Description
+                </th>
+
+                <th>
+                  Quantity
+                </th>
+
+                <th>
+                  Price / Unit
+                </th>
+
+                <th>
+                  Total
+                </th>
+
+              </tr>
+
+            </thead>
+
+
+
+            <tbody>
+
+              <tr>
+
+
+                <td id="productDisplay">
+                  Dosa Batter
+                </td>
+
+
+                <td id="quantityDisplay">
+                  50 kg
+                </td>
+
+
+                <td id="priceDisplay">
+                  15.00 PLN
+                </td>
+
+
+                <td id="productTotal">
+                  750.00 PLN
+                </td>
+
+
+              </tr>
+
+            </tbody>
+
+
+          </table>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             TOTALS
+        ================================== -->
+
+        <div class="totals">
+
+
+          <div>
+
+            <span>
+              Subtotal:
+            </span>
+
+            <strong id="subtotal">
+              750.00 PLN
+            </strong>
+
+          </div>
+
+
+
+          <div>
+
+            <span>
+              VAT:
+            </span>
+
+            <strong id="vatAmount">
+              172.50 PLN
+            </strong>
+
+          </div>
+
+
+
+          <div class="grand-total">
+
+            <span>
+              Total:
+            </span>
+
+            <strong id="grandTotal">
+              922.50 PLN
+            </strong>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             FOOTER
+        ================================== -->
+
+        <div class="invoice-footer">
+
+
+          <div>
+
+            <strong>
+              Payment Terms:
+            </strong>
+
+            <span id="paymentDisplay">
+              Payment due within 14 days
+            </span>
+
+          </div>
+
+
+
+          <div>
+
+            <strong>
+              Notes:
+            </strong>
+
+            <p id="notesDisplay">
+              Thank you for your business!
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- =================================
+             SAMPLE NOTICE
+        ================================== -->
+
+        <div class="invoice-footnote">
+
+
+          <p>
+            This document is a sample invoice
+            for demonstration purposes only.
+          </p>
+
+
+          <p>
+            SAMPLE / NOT A TAX INVOICE
+          </p>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script src="script.js"></script>
+
+
+</body>
+
+</html>

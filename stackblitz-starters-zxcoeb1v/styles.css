@@ -1,0 +1,654 @@
+/* =========================================
+   DOSA FRESH - INVOICE GENERATOR
+   PROFESSIONAL DESIGN
+========================================= */
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 30px;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: #eef2ef;
+  color: #1f2933;
+}
+
+
+/* =========================================
+   PAGE HEADER
+========================================= */
+
+.page-header {
+  max-width: 1450px;
+
+  margin: 0 auto 28px;
+
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  color: #075b2a;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 8px 0 0;
+
+  color: #66736b;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   MAIN APPLICATION
+========================================= */
+
+.app {
+  max-width: 1450px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 360px 1fr;
+
+  gap: 35px;
+
+  align-items: start;
+}
+
+
+/* =========================================
+   SETTINGS PANEL
+========================================= */
+
+.form-section {
+  background: #ffffff;
+
+  padding: 26px;
+
+  border-radius: 14px;
+
+  border: 1px solid #dce5df;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.form-section h2 {
+  margin: 0 0 25px;
+
+  color: #075b2a;
+
+  font-size: 23px;
+}
+
+.form-section h3 {
+  margin: 26px 0 14px;
+
+  padding-bottom: 8px;
+
+  color: #075b2a;
+
+  border-bottom: 2px solid #e1ebe4;
+
+  font-size: 15px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   FORM LABELS
+========================================= */
+
+.form-section label {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #37443c;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+
+  margin-top: 7px;
+
+  padding: 11px 12px;
+
+  border: 1px solid #ccd7d0;
+
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  color: #202a24;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.form-section input:hover,
+.form-section textarea:hover {
+  border-color: #9eb4a5;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: none;
+
+  border-color: #075b2a;
+
+  box-shadow:
+    0 0 0 3px rgba(7, 91, 42, 0.10);
+}
+
+.form-section textarea {
+  min-height: 90px;
+
+  resize: vertical;
+}
+
+
+/* =========================================
+   PRINT BUTTON
+========================================= */
+
+.actions {
+  margin-top: 28px;
+}
+
+.actions button {
+  width: 100%;
+
+  padding: 13px 20px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #075b2a;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s,
+    transform 0.1s;
+}
+
+.actions button:hover {
+  background: #064a23;
+}
+
+.actions button:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================
+   PREVIEW AREA
+========================================= */
+
+.preview-section {
+  min-width: 0;
+}
+
+.preview-label {
+  margin-bottom: 12px;
+
+  color: #66736b;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   INVOICE PAPER
+========================================= */
+
+.invoice {
+  width: 100%;
+
+  max-width: 900px;
+
+  min-height: 1120px;
+
+  margin: 0 auto;
+
+  padding: 55px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5e2;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   COMPANY HEADER
+========================================= */
+
+.company-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: 30px;
+
+  padding-bottom: 28px;
+
+  border-bottom: 2px solid #075b2a;
+}
+
+.company-brand {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+}
+
+
+/* =========================================
+   DOSA FRESH LOGO
+========================================= */
+
+.dosa-logo {
+  width: 250px;
+
+  height: auto;
+
+  display: block;
+}
+
+
+/* =========================================
+   INVOICE TITLE
+========================================= */
+
+.invoice-title {
+  text-align: right;
+
+  min-width: 180px;
+}
+
+.invoice-title h1 {
+  margin: 0;
+
+  color: #1f2933;
+
+  font-size: 38px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.sample-warning {
+  margin: 7px 0 0;
+
+  color: #b42318;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   INVOICE INFORMATION
+========================================= */
+
+.invoice-info {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0;
+
+  margin: 30px 0;
+
+  border: 1px solid #dfe7e1;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+}
+
+.invoice-info div {
+  padding: 14px 16px;
+
+  border-bottom: 1px solid #e4e9e5;
+
+  font-size: 13px;
+}
+
+.invoice-info div:nth-child(odd) {
+  border-right: 1px solid #e4e9e5;
+}
+
+.invoice-info div:nth-last-child(-n + 2) {
+  border-bottom: none;
+}
+
+.invoice-info strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #66736b;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.invoice-info span {
+  color: #202a24;
+
+  font-weight: 600;
+}
+
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.items {
+  margin-top: 30px;
+}
+
+.items table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.items th {
+  padding: 13px;
+
+  background: #075b2a;
+
+  color: #ffffff;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-align: left;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.items td {
+  padding: 15px 13px;
+
+  border-bottom: 1px solid #dfe5e1;
+
+  color: #303a34;
+
+  font-size: 14px;
+}
+
+.items tbody tr:hover {
+  background: #f8faf8;
+}
+
+.items th:nth-child(n + 2),
+.items td:nth-child(n + 2) {
+  text-align: right;
+}
+
+
+/* =========================================
+   TOTALS
+========================================= */
+
+.totals {
+  width: 320px;
+
+  margin-left: auto;
+
+  margin-top: 30px;
+}
+
+.totals div {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 7px 0;
+
+  color: #536158;
+
+  font-size: 14px;
+}
+
+.totals strong {
+  color: #202a24;
+}
+
+.totals .grand-total {
+  margin-top: 10px;
+
+  padding: 15px 0 0;
+
+  border-top: 2px solid #075b2a;
+
+  color: #075b2a;
+
+  font-size: 21px;
+
+  font-weight: 700;
+}
+
+.totals .grand-total strong {
+  color: #075b2a;
+}
+
+
+/* =========================================
+   INVOICE FOOTER
+========================================= */
+
+.invoice-footer {
+  margin-top: 65px;
+
+  padding-top: 25px;
+
+  border-top: 1px solid #dfe5e1;
+
+  font-size: 13px;
+}
+
+.invoice-footer > div {
+  margin-bottom: 20px;
+}
+
+.invoice-footer strong {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #075b2a;
+
+  font-size: 12px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+.invoice-footer span {
+  color: #536158;
+}
+
+.invoice-footer p {
+  margin: 0;
+
+  color: #536158;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================
+   SAMPLE FOOTNOTE
+========================================= */
+
+.invoice-footnote {
+  margin-top: 45px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e1e5e2;
+
+  text-align: center;
+}
+
+.invoice-footnote p {
+  margin: 4px 0;
+
+  color: #8a958e;
+
+  font-size: 10px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  body {
+    padding: 20px;
+  }
+
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .form-section {
+    order: 1;
+  }
+
+  .preview-section {
+    order: 2;
+  }
+
+  .invoice {
+    max-width: 900px;
+  }
+}
+
+
+/* =========================================
+   PRINT / SAVE AS PDF
+========================================= */
+
+@page {
+  size: A4;
+
+  margin: 12mm;
+}
+
+@media print {
+
+  body {
+    margin: 0;
+
+    padding: 0;
+
+    background: #ffffff;
+  }
+
+  .page-header,
+  .form-section,
+  .preview-label {
+    display: none !important;
+  }
+
+  .app {
+    display: block;
+  }
+
+  .preview-section {
+    width: 100%;
+  }
+
+  .invoice {
+    width: 100%;
+
+    max-width: none;
+
+    min-height: auto;
+
+    margin: 0;
+
+    padding: 0;
+
+    border: none;
+
+    box-shadow: none;
+  }
+
+  .items tbody tr:hover {
+    background: transparent;
+  }
+}
